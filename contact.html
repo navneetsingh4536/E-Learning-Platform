@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - InspireLearn</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            const phonePattern = /^\d{10,}$/;
+
+            if (name === "") {
+                alert("Please enter your full name.");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid phone number with at least 10 digits.");
+                return false;
+            }
+            if (subject === "") {
+                alert("Please enter the subject of your message.");
+                return false;
+            }
+            if (message === "") {
+                alert("Please describe your problem.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/p1.png" alt="InspireLearn Logo" class="logo-img">
+                <h1>InspireLearn</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Online Courses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="register.php">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-us">
+        <div class="contact-container">
+            <div class="contact-image">
+                <img src="images/contact.jpg" alt="Illustration" />
+            </div>
+            <div class="contact-form">
+                <h2><center>Contact Us</center></h2>
+                <p>We'd love to hear from you! Reach out to us for any inquiries or information.</p>
+
+                <div class="customer-message">
+                    <h3>Facing login or account issues?</h3>
+                    <p>We understand how frustrating it can be to face login troubles or any issues accessing our services. Don't worry, we're here to help! If you're having trouble logging into your account or encountering any other difficulties, please fill out the form below and select "Login Issue" as your subject. Our team will prioritize your request and get back to you as soon as possible.</p>
+                </div>
+                
+                <form action="contactIn.php" method="POST" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="Name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="Email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="Your phone number" required>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="Subject" placeholder="Subject of your message" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Problem</label>
+                        <textarea id="message" name="Problem" placeholder="Your problem here" required></textarea>
+                    </div><br>
+                    <button type="submit" class="btn-send">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/YourPage" target="_blank">
+                    <img src="images/face.png" alt="Facebook">
+                </a>&nbsp; &nbsp;
+                <a href="https://www.twitter.com/YourPage" target="_blank">
+                    <img src="images/twitter.png" alt="Twitter">
+                </a>&nbsp; &nbsp;
+                <a href="https://www.instagram.com/YourPage" target="_blank">
+                    <img src="images/inst.jpg" alt="Instagram">
+                </a>&nbsp; &nbsp;
+                <a href="https://www.linkedin.com/company/YourPage" target="_blank">
+                    <img src="images/in.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div><br>
+
+        <div>
+            <h3>Contact Us</h3>
+            <p>Email: info@inspirelearn.com</p>
+            <p>Phone: +161 456 7890</p>
+        </div>
+    </div><br>
+
+    <div>
+        <p>&copy; 2024 InspireLearn. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
